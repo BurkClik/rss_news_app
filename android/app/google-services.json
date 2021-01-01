@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "208171240824",
+    "project_id": "multicamp-news-app",
+    "storage_bucket": "multicamp-news-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:208171240824:android:317afb591a7a2a02510c8d",
+        "android_client_info": {
+          "package_name": "com.burak.multicamp_news_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "208171240824-5oqcnkdujd4pheq10sbcqe80t1if6qbs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJ-IxcVTKvwdn5BXFLXtWUxHQGwWy_hyc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "208171240824-5oqcnkdujd4pheq10sbcqe80t1if6qbs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -7,9 +7,19 @@ const kSecondColor = Color(0xFFFC8B8E);
 // Splash
 //=======================================
 const kSplashTextStyle = TextStyle(
-  fontFamily: 'Kochasan',
+  fontFamily: 'Kodchasan',
   fontWeight: FontWeight.w600,
   fontSize: 24.0,
+  color: kPrimaryColor,
+);
+
+//==================================
+// AppBar
+//==================================
+const kAppBarText = TextStyle(
+  fontFamily: 'Times New Roman',
+  fontSize: 28,
+  color: Colors.black,
 );
 
 //==================================
@@ -59,4 +69,46 @@ const kSignAuthHintText = TextStyle(
   fontWeight: FontWeight.w600,
   fontSize: 12.0,
   color: kPrimaryColor,
+);
+
+//======================================
+// Search
+//======================================
+const kSearchInputDeco = InputDecoration(
+  contentPadding: EdgeInsets.symmetric(horizontal: 30.0),
+  floatingLabelBehavior: FloatingLabelBehavior.never,
+  suffixIcon: Icon(Icons.search),
+  labelText: 'Ara',
+  labelStyle: TextStyle(fontFamily: 'Kodchasan'),
+  filled: true,
+  fillColor: Color(0x59FC8B8E),
+  enabledBorder: OutlineInputBorder(
+    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+    borderSide: BorderSide(
+      style: BorderStyle.none,
+    ),
+  ),
+  focusedBorder: OutlineInputBorder(
+    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+    borderSide: BorderSide(
+      style: BorderStyle.none,
+    ),
+  ),
+);
+
+//========================================
+// News
+//========================================
+const kNewsFilter = BoxDecoration(
+  gradient: LinearGradient(
+    begin: Alignment.center,
+    end: Alignment.bottomCenter,
+    colors: [Colors.transparent, Color(0xB3000000)],
+  ),
+  borderRadius: BorderRadius.all(Radius.circular(5.0)),
+);
+
+const kNewsTitle = TextStyle(
+  fontFamily: 'Kodchasan',
+  color: Colors.white,
 );
