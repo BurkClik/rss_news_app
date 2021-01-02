@@ -103,12 +103,14 @@ const kNewsFilter = BoxDecoration(
   gradient: LinearGradient(
     begin: Alignment.center,
     end: Alignment.bottomCenter,
-    colors: [Colors.transparent, Color(0xB3000000)],
+    colors: [Colors.transparent, Color(0xCC000000)],
   ),
   borderRadius: BorderRadius.all(Radius.circular(5.0)),
 );
 
 const kNewsTitle = TextStyle(
   fontFamily: 'Kodchasan',
+  fontWeight: FontWeight.w600,
+  fontSize: 16.0,
   color: Colors.white,
 );

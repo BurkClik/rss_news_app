@@ -1,10 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:multicamp_news_app/screens/home_body.dart';
+import 'package:multicamp_news_app/screens/login.dart';
+import 'package:multicamp_news_app/services/auth_service.dart';
 import 'package:multicamp_news_app/theme/constants.dart';
 import 'package:multicamp_news_app/theme/size_config.dart';
+import 'package:provider/provider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class Home extends StatelessWidget {
+  final FirebaseAuth auth = FirebaseAuth.instance;
+
+  void showLicensePage({
+    @required BuildContext context,
+    String applicationName,
+    String applicationVersion,
+    Widget applicationIcon,
+    String applicationLegalese,
+    bool useRootNavigator = false,
+  }) {
+    assert(context != null);
+    assert(useRootNavigator != null);
+    Navigator.of(context, rootNavigator: useRootNavigator)
+        .push(MaterialPageRoute<void>(
+      builder: (BuildContext context) => LicensePage(
+        applicationName: applicationName,
+        applicationVersion: applicationVersion,
+        applicationIcon: applicationIcon,
+        applicationLegalese: applicationLegalese,
+      ),
+    ));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,18 +82,42 @@ class Home extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   SizedBox(height: 240),
-                  Text('Burak Çelik'),
-                  SizedBox(height: getProportionateScreenHeight(240)),
+                  Text(
+                    'Burak Çelik',
+                    style: TextStyle(fontSize: 24),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 12.0),
+                    child: InkWell(
+                      onTap: () {
+                        showLicensePage(context: context);
+                      },
+                      child: Text('Lisanslar'),
+                    ),
+                  ),
+                  SizedBox(height: getProportionateScreenHeight(220)),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text('burk.clik@gmail.com'),
+                      Text(auth.currentUser.email),
                       IconButton(
                         icon: Icon(
                           Icons.exit_to_app,
                           color: kPrimaryColor,
                         ),
-                        onPressed: () {},
+                        onPressed: () async {
+                          try {
+                            await context
+                                .read<AuthenticationService>()
+                                .signOut();
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Login(),
+                              ),
+                            );
+                          } catch (e) {}
+                        },
                       ),
                     ],
                   ),
